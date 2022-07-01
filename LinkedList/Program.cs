@@ -9,7 +9,8 @@ list.Add(30);
 list.Add(40);
 list.Add(70);
 list.Display();
-Console.WriteLine("\n>> Current Size of Linked List :- " + list.Size());
-list.DeleteElement(40);
+Console.WriteLine("\n>> Sorted Linked List :- ");
+list.Sort();
 list.Display();
+
 

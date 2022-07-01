@@ -145,24 +145,21 @@ namespace LinkedList
                 count++;
             }
             Console.WriteLine("\n>> Element not found in LinkedList!!!..");
-            return null;
+            return default;
         }
 
 
         public Node SearchandInsert(int searchValue)
         {
-            var x = SearchTestCase(searchValue);
-            if (x != null)
-            {
-                Console.Write("\n>> Enter the Value You want to insert :-");
-                int InsertValue = Int32.Parse(Console.ReadLine());
-                Console.Write("\n>> Enter the Position at which you want to insert your value :-");
-                int PositionValue = Int32.Parse(Console.ReadLine());
+            SearchTestCase(searchValue);
 
-                return InsertAtParticularPosition(PositionValue, InsertValue);
-            }
-            else
-                return default;
+            Console.Write("\n> Enter the Value You want to insert :-");
+            int InsertValue = Int32.Parse(Console.ReadLine());
+            Console.Write("\n> Enter the Position at which you want to insert your value :-");
+            int PositionValue = Int32.Parse(Console.ReadLine());
+
+            return InsertAtParticularPosition(PositionValue, InsertValue);
+
         }
 
 
@@ -193,6 +190,24 @@ namespace LinkedList
                 }
 
 
+        }
+
+        public void Sort()
+        {
+            Node i, j;
+            int temp;
+            for (i = this.head; i.next != null; i = i.next)
+            {
+                for (j = i.next; j != null; j = j.next)
+                {
+                    if (i.data > j.data)
+                    {
+                        temp = i.data;
+                        i.data = j.data;
+                        j.data = temp;
+                    }
+                }
+            }
         }
 
         public int Size()
