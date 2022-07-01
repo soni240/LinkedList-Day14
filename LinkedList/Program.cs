@@ -6,8 +6,10 @@ Console.WriteLine("----- Welcome TO LinkedList -----\n");
 LinkedListOps list = new LinkedListOps();
 list.Add(56);
 list.Add(30);
+list.Add(40);
 list.Add(70);
 list.Display();
-list.SearchandInsert(40);
+Console.WriteLine("\n>> Current Size of Linked List :- " + list.Size());
+list.DeleteElement(40);
 list.Display();
 
