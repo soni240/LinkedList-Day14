@@ -9,7 +9,7 @@ namespace LinkedList
     public class LinkedListOps
     {
         internal Node head;
-        public int count = 0;
+
         internal void Add(int data)
         {
             Node node = new Node(data);
@@ -30,8 +30,8 @@ namespace LinkedList
                 temp.next = node;
 
             }
-            count++;
-            Console.WriteLine(">>> {0} is added to LinkedList...", data);
+
+            Console.WriteLine("> {0} is added to LinkedList...", data);
 
         }
 
@@ -57,7 +57,7 @@ namespace LinkedList
                 temp.next = node;
 
 
-                Console.WriteLine(">>> {0} is appended to LinkedList...", data);
+                Console.WriteLine("> {0} is appended to LinkedList...", data);
 
             }
 
@@ -70,6 +70,8 @@ namespace LinkedList
 
             //if (position < 1)
             //     Console.WriteLine("Invalid position");   // this will make linked list index start from 1 explicitly
+
+            int count = Size(); //calling Size method to give condtion to position
 
             if (position == 0)
             {
@@ -99,7 +101,7 @@ namespace LinkedList
 
             }
 
-            Console.WriteLine("\n>>> {0} is inserted at {1} position in LinkedList....\n", data, position);
+            Console.WriteLine("\n>> {0} is inserted at {1} position in LinkedList....\n", data, position);
             return head;
         }
 
@@ -128,7 +130,7 @@ namespace LinkedList
 
         public Node SearchTestCase(int value)
         {
-            Console.WriteLine("\n>> Serching For Element {0}... .. .", value);
+            Console.WriteLine("\n> Serching For Element {0}... .. .", value);
 
             Node temp = this.head;
             int count = 0;
@@ -136,7 +138,7 @@ namespace LinkedList
             {
                 if (temp.data == value)
                 {
-                    Console.WriteLine("\n>>> Element Found in LinkedList :- Position = {0} , Value = {1} ", count, value);
+                    Console.WriteLine("\n>> Element Found in LinkedList :- Position = {0} , Value = {1} ", count, value);
                     return temp;
                 }
                 temp = temp.next;
@@ -159,12 +161,51 @@ namespace LinkedList
 
                 return InsertAtParticularPosition(PositionValue, InsertValue);
             }
-
             else
                 return default;
         }
 
 
+        public void DeleteElement(int valuetobeDeleted)
+        {
+            SearchTestCase(valuetobeDeleted);
+            Node temp = head;
+            if (temp.data == valuetobeDeleted)
+            {
+                head = temp.next;
+            }
+            else
+
+                while (temp.next != null)
+                {
+
+                    if (temp.next.data == valuetobeDeleted)
+                    {
+                        temp.next = temp.next.next;
+                        Console.WriteLine("\n>> Data {0} has been deleted from linked list", temp.data);
+                        int sizeofList = Size();
+                        Console.WriteLine("\n>> Current Size of the LinkedList is :- " + sizeofList);
+                        return;
+                    }
+                    else
+                        temp = temp.next;
+
+                }
+
+
+        }
+
+        public int Size()
+        {
+            int count = 0;
+            Node temp = this.head;
+            while (temp != null)
+            {
+                count++;
+                temp = temp.next;
+            }
+            return count;
+        }
 
         internal void Display()
         {
@@ -177,7 +218,7 @@ namespace LinkedList
             }
             else
             {
-                Console.Write("\nLinkedList :- { ");
+                Console.Write("\n>>> LinkedList :- { ");
 
                 while (temp != null)
                 {
