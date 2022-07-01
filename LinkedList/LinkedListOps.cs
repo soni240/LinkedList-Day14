@@ -109,6 +109,21 @@ namespace LinkedList
             return head;
         }
 
+        internal Node PopLast()
+        {
+            if (head == null)
+                return null;
+            if (head.next == null)
+                return null;
+            Node newNode = head;
+            while (newNode.next.next != null)
+            {
+                newNode = newNode.next;
+            }
+            newNode.next = null;
+            return head;
+        }
+
         internal void Display()
         {
             Node temp = this.head;
@@ -135,3 +150,4 @@ namespace LinkedList
 
     }
 }
+
