@@ -92,6 +92,7 @@ namespace LinkedList
                         Console.WriteLine("\n>> LinkedList Index out of Bound !!!\nCan not Insert {0}", data);
                         return head;
                     }
+
                 }
                 newNode.next = temp.next;
                 temp.next = newNode;
@@ -142,8 +143,28 @@ namespace LinkedList
                 count++;
             }
             Console.WriteLine("\n>> Element not found in LinkedList!!!..");
-            return default;
+            return null;
         }
+
+
+        public Node SearchandInsert(int searchValue)
+        {
+            var x = SearchTestCase(searchValue);
+            if (x != null)
+            {
+                Console.Write("\n>> Enter the Value You want to insert :-");
+                int InsertValue = Int32.Parse(Console.ReadLine());
+                Console.Write("\n>> Enter the Position at which you want to insert your value :-");
+                int PositionValue = Int32.Parse(Console.ReadLine());
+
+                return InsertAtParticularPosition(PositionValue, InsertValue);
+            }
+
+            else
+                return default;
+        }
+
+
 
         internal void Display()
         {
