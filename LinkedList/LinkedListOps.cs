@@ -101,6 +101,14 @@ namespace LinkedList
             return head;
         }
 
+        internal Node Pop()
+        {
+            if (head == null)
+                return null;
+            head = head.next;
+            return head;
+        }
+
         internal void Display()
         {
             Node temp = this.head;

@@ -5,9 +5,12 @@ Console.WriteLine("----- Welcome TO LinkedList -----\n");
 
 LinkedListOps list = new LinkedListOps();
 list.Add(56);
-//list.Append(30);
+list.Append(30);
 list.Append(70);
-list.InsertAtParticularPosition(1, 30);
+Console.WriteLine("\n>>> Before Pop :-");
+list.Display();
+list.Pop();
+Console.WriteLine("\n>>> After Pop :- ");
 list.Display();
 
 
