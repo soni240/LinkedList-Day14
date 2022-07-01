@@ -5,8 +5,6 @@ Console.WriteLine("----- Welcome TO LinkedList -----\n");
 
 LinkedListOps list = new LinkedListOps();
 list.Add(56);
-list.Add(30);
-list.Add(70);
+list.Append(30);
+list.Append(70);
 list.Display();
-
-
